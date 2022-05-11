@@ -1,25 +1,22 @@
-import React from "react";
-import Axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import "../Routes/styles/CoinPage.css";
-import BackgroundImg from "../images/cryptobckg.jpeg";
+import React from 'react';
+import Axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import '../Routes/styles/CoinPage.css';
+import BackgroundImg from '../images/cryptobckg.jpeg';
 
 function CoinPage() {
   let { id } = useParams();
   const [coin, setCoin] = useState(null);
- 
 
   useEffect(() => {
     console.log(id);
-    Axios.get(`https://api.coingecko.com/api/v3/coins/${id}`)
-    .then(
+    Axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then(
       (response) => {
         setCoin(response.data);
       }
     );
   }, []);
-
 
   if (coin) {
     return (
@@ -27,8 +24,8 @@ function CoinPage() {
         className="coinPage-Container"
         style={{
           backgroundImage: `url(${BackgroundImg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
       >
         <div className="coinPage-Info">
@@ -73,8 +70,6 @@ function CoinPage() {
           <Link to="/">
             <div className="coinPage-RouteButton">Go back</div>
           </Link>
-
-         
         </div>
       </div>
     );
