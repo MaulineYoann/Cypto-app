@@ -44,11 +44,11 @@ const Home = () => {
             type="text"
             onChange={handleChange}
           />
-          <img onClick={refreshPage} src={Refresh} alt='icon'></img>
+          <img onClick={refreshPage} src={Refresh} alt="icon"></img>
         </div>
       </div>
       <div className="coinContainer">
-        {isLoading && <h1 className="loadingMssg">Data Loading...</h1>}
+        {isLoading && <h1 className="loadingMssg">Data Loading....</h1>}
         {filterCoins.map((coins) => {
           return (
             <Coins
@@ -65,6 +65,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
